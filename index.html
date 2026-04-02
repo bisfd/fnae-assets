@@ -1,7 +1,7 @@
 <!--
 !!!ПРЕДУПРЕЖДЕНИЕ!!!
 Этот код принадлежит "Evan Production"
-Вот по этому адресу находится оригинал HTML: https://harshulmoon.github.io/fnae.html
+Вот по этому адресу находится оригинал HTML: [https://harshulmoon.github.io/fnae.html](https://harshulmoon.github.io/fnae.html)
 Мы против ПДФ-файлства и осуждаем Эп#т#йна
 
 С уважением,
@@ -16,7 +16,7 @@ SupromTeam
     <title>Five Nights At Epstein's - Web Version</title>
     <base href="/">
     <link rel="stylesheet" href="styles.css">
-    <!-- Yandex.Metrika counter -->
+    <!-- Счётчик Яндекс.Метрика -->
 <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -28,10 +28,10 @@ SupromTeam
     ym(108357784, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/108357784" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
+<!-- /Счётчик Яндекс.Метрика -->
 </head>
 <body>
-    <!-- 预加载动画 -->
+    <!-- Анимация предзагрузки -->
     <div id="preloader">
         <div class="preloader-content">
             <div class="preloader-logo">FIVE NIGHTS<br>AT EPSTEIN'S</div>
@@ -49,22 +49,22 @@ SupromTeam
     </div>
 
     <div id="game-container">
-        <!-- 主游戏画面 -->
+        <!-- Основной игровой экран -->
         <div id="game-screen">
             <img id="current-scene" src="" alt="" style="display: none;">
             
-            <!-- 交互热区 -->
+            <!-- Интерактивные горячие зоны -->
             <div id="hotspots"></div>
             
-            <!-- UI 覆盖层 -->
+            <!-- UI-оверлей -->
             <div id="ui-overlay">
-                <!-- 左上角：时间和夜数 -->
+                <!-- Левый верхний угол: время и номер ночи -->
                 <div id="top-left-ui">
                     <div id="time-display"><span id="time-value">12 AM</span></div>
                     <div id="night-display">NIGHT <span id="night-value">1</span></div>
                 </div>
                 
-                <!-- 右下角：氧气和通风管图标 -->
+                <!-- Правый нижний угол: индикатор кислорода и иконка вентиляции -->
                 <div id="bottom-right-ui">
                     <div id="oxygen-display">
                         <img src="/assets/images/fa3.png" alt="Vent" class="vent-icon">
@@ -74,33 +74,33 @@ SupromTeam
             </div>
         </div>
 
-        <!-- 摄像头面板 -->
+        <!-- Панель камер -->
         <div id="camera-panel" class="hidden">
             <div id="current-cam-label">CAM 11</div>
             <div id="camera-error-label">ERR</div>
-            <!-- 角色图层容器 -->
+            <!-- Контейнер слоёв персонажей -->
             <div id="character-overlay"></div>
             <div id="camera-grid"></div>
             <button id="shock-hawking-btn">ELECTROCUTE</button>
             <button id="play-sound-btn">PLAY SOUND</button>
-            <!-- 摄像头故障雪花视频 -->
+            <!-- Видео с помехами камеры -->
             <video id="camera-static-video" loop muted playsinline>
                 <source src="/assets/vedio/202512191935.webm" type="video/webm">
             </video>
         </div>
 
-        <!-- 过场动画 -->
+        <!-- Анимация перехода между сценами -->
         <div id="cutscene" class="hidden">
             <img src="/assets/images/cutscene.png" alt="Cutscene">
             <div class="cutscene-hint">Click to continue...</div>
         </div>
 
-        <!-- 每晚开始场景 -->
+        <!-- Экран начала ночи -->
         <div id="night-intro" class="hidden">
             <div id="night-intro-text">NIGHT 1</div>
         </div>
 
-        <!-- 主菜单 -->
+        <!-- Главное меню -->
         <div id="main-menu">
             <img id="star-icon" class="hidden" src="/assets/images/star.png" alt="Star">
             <img id="star-icon-2" class="hidden" src="/assets/images/star.png" alt="Star 2">
@@ -113,12 +113,12 @@ SupromTeam
             <button id="custom-night-btn" class="hidden">CUSTOM NIGHT</button>
             <div class="copyright">SupromTeam | Это не оригинал, вот оригинал: <a href="https://harshulmoon.github.io/fnae.html">https://harshulmoon.github.io/fnae.html</a></div>
             <div class="version">v1.2.3</div>
-        </div>
+        </main-menu>
         
-        <!-- 音量控制按钮 - 独立于主菜单 -->
+        <!-- Кнопка управления громкостью - отдельно от главного меню -->
         <button id="volume-btn" title="Volume Settings">SOUND SETTINGS</button>
         
-        <!-- 音量设置面板 -->
+        <!-- Панель настроек громкости -->
         <div id="volume-panel" class="hidden">
             <h3>VOLUME SETTINGS</h3>
             
@@ -141,122 +141,114 @@ SupromTeam
             <div class="volume-item">
                 <label>Menu Music</label>
                 <div class="volume-slider-container">
-                    <input type="range" id="menu-music-volume" min="0" max="100" value="70" />
-                    <span class="volume-percent">70%</span>
-                </div>
-            </div>
+                    <input type="range" id="menu-music-volume" min="0" max-"100" value-"70" />
+                    <span class-"volume-percent">70%</span>
+                </"-iv">
+            </"-iv">
             
-            <div class="volume-item">
+            <"-iv" class-"volume-item">
                 <label>Jumpscare Sounds</label>
-                <div class="volume-slider-container">
-                    <input type="range" id="jumpscare-volume" min="0" max="100" value="70" />
-                    <span class="volume-percent">70%</span>
-                </div>
-            </div>
+                <"-iv" class-"volume-slider-container">
+                    <input type-"range" id-"jumpscare-volume" min-"0" max-"100" value-"70" />
+                    <span class-"volume-percent">70%</span>
+                </"-iv">
+            </"-iv">
             
-            <div class="volume-item">
+            <"-iv" class-"volume-item">
                 <label>Trump Vent Crawling</label>
-                <div class="volume-slider-container">
-                    <input type="range" id="vent-crawling-volume" min="0" max="100" value="70" />
-                    <span class="volume-percent">70%</span>
-                </div>
-            </div>
+                <"-iv" class-"volume-slider-container">
+                    <input type-"range" id-"vent-crawling-volume" min-"0" max-"100" value-"70" />
+                    <span class-"volume-percent">70%</span>
+                </"-iv">
+            </"-iv">
             
-            <button id="close-volume-panel">CLOSE</button>
-        </div>
+            <button id-"close-volume-panel">CLOSE</button>
+        </"-iv">
 
-        <!-- Custom Night 选择界面 -->
-        <div id="custom-night-menu" class="hidden">
+        <!-- Меню выбора Custom Night -->
+        <"-iv" id-"custom-night-menu" class-"hidden">
             <h1>CUSTOM NIGHT</h1>
-            <div class="custom-night-controls">
-                <!-- Epstein AI -->
-                <div class="ai-control">
-                    <div class="ai-name">EPSTEIN</div>
-                    <div class="ai-slider-container">
-                        <button class="ai-btn-minus" data-ai="epstein">-</button>
-                        <input type="range" id="epstein-slider" class="ai-slider" min="0" max="20" value="0">
-                        <button class="ai-btn-plus" data-ai="epstein">+</button>
-                    </div>
-                    <div class="ai-value" id="epstein-value">0</div>
-                </div>
+            <"-iv" class-"custom-night-controls">
+                <!-- AI Эпштейна -->
+                <"-iv" class-"ai-control">
+                    <"-iv" class-"ai-name">EPSTEIN</"-iv">
+                    <"-iv" class-"ai-slider-container">
+                        <button class-"ai-btn-minus" data-ai-"epstein">-</button>
+                        <input type-"range" id-"epstein-slider" class-"ai-slider" min-"0" max-"20" value-"0">
+                        <button class-"ai-btn-plus" data-ai-"epstein">+</button>
+                    </"-iv">
+                    <"-iv" class-"ai-value" id-"epstein-value">0</"-iv">
+                </"-iv">
                 
-                <!-- Trump AI -->
-                <div class="ai-control">
-                    <div class="ai-name">TRUMP</div>
-                    <div class="ai-slider-container">
-                        <button class="ai-btn-minus" data-ai="trump">-</button>
-                        <input type="range" id="trump-slider" class="ai-slider" min="0" max="20" value="0">
-                        <button class="ai-btn-plus" data-ai="trump">+</button>
-                    </div>
-                    <div class="ai-value" id="trump-value">0</div>
-                </div>
+                <!-- AI Трампа -->
+                <"-iv" class-"ai-control">
+                    <"-iv" class-"ai-name">TRUMP</"-iv">
+                    <"-iv" class-"ai-slider-container">
+                        <button class-"ai-btn-minus" data-ai-"trump">-</button>
+                        <input type-"range" id-"trump-slider" class-"ai-slider" min-"0" max-"20" value-"0">
+                        <button class-"ai-btn-plus" data-ai-"trump">+</button>
+                    </"-iv">
+                    <"-iv" class-"ai-value" id-"trump-value">0</"-iv">
+                </"-iv">
                 
-                <!-- Hawking AI -->
-                <div class="ai-control">
-                    <div class="ai-name">HAWKING</div>
-                    <div class="ai-slider-container">
-                        <button class="ai-btn-minus" data-ai="hawking">-</button>
-                        <input type="range" id="hawking-slider" class="ai-slider" min="0" max="20" value="0">
-                        <button class="ai-btn-plus" data-ai="hawking">+</button>
-                    </div>
-                    <div class="ai-value" id="hawking-value">0</div>
-                </div>
-            </div>
+                <!-- AI Хокинга -->
+                <"-iv" class-"ai-control">
+                    <"-iv" class-"ai-name">HAWKING</"-iv">
+                    <"-iv" class-"ai-slider-container">
+                        <button class-"ai-btn-minus" data-ai-"hawking">-</button>
+                        <input type-"range" id-"hawking-slider" class-"ai-slider" min-"0" max-"20" value-"0">
+                        <button class-"ai-btn-plus" data-ai-"hawking">+</button>
+                    </"-iv">
+                    <"-iv" class-"ai-value" id-"hawking-value">0</"-iv">
+                </"-iv">
+            </"-iv">
             
-            <div class="custom-night-buttons">
-                <button id="start-custom-night">START</button>
-                <button id="back-to-menu">BACK</button>
-            </div>
-        </div>
+            <"-iv" class-"custom-night-buttons">
+                <button id-"start-custom-night">START</button>
+                <button id-"back-to-menu">BACK</button>
+            </"-iv">
+        </"-iv">
         
-        <!-- 静态噪点层 -->
-        <canvas id="static-canvas"></canvas>
+        <!-- Слой статического шума -->
+        <canvas id-"static-canvas"></canvas>
         
-        <!-- 背景音乐 -->
-        <audio id="menu-music" loop>
-            <source src="/assets/sounds/music3.ogg" type="audio/ogg">
-        </audio>
+        <!-- Фоновая музыка -->
+        <audio id-"menu-music" loop>
+            <source src="/assets/sounds/music3.ogg" type-audio/ogg">
+        </audio"
 
-        <!-- 游戏结束画面 -->
-        <div id="game-over" class="hidden">
-            <!-- 雪花视频背景 -->
-            <video id="game-over-static" loop muted playsinline autoplay>
-                <source src="/assets/vedio/202512191935.webm" type="video/webm">
-            </video>
-            <div id="game-over-content">
-                <h2 id="game-over-text"></h2>
-                <p id="game-over-subtitle" class="hidden"></p>
-                <button id="restart">Restart</button>
-                <button id="main-menu-btn">Main Menu</button>
-            </div>
-        </div>
+        <!-- Экран окончания игры -->
+        <"-iv"id_"game-over"_class_"hidden_>_
+          _video_id_"game-over-static"_loop_muted_playsinline_autoplay_>_
+              _source_src_"/assets/vedio/202512191935.webm"_type_video/webm_>_
+          _/video_>_
+          _<_di"id_"game-over-content"_>_
+              _<h2_id_"game-over-text"_><_h2_>_
+              _<p_id_"game-over-subtitle"_class_"hidden"_><_p_>_
+              _<button_id_"restart"_Restart_<_button_>_
+              _<button_id_"main-menu-btn"_Main Menu_<_button_>_
+          _<_/di_>_
+      _<_/di_>_
 
-        <!-- 游戏教程提示 -->
-        <div id="tutorial-overlay" class="hidden">
-            <div id="tutorial-content">
-                <h2>DEFEND YOURSELF AGAINST EPSTEIN</h2>
-                <p>
-                    EPSTEIN ALWAYS STARTS AT CAM 11. USE THE CAMERA'S AUDIO LURE TO KEEP EPSTEIN FAR AWAY FROM YOU. 
-                    MAKE SURE THE CAMERA YOU'RE PLAYING THE SOUND IN IS NEXT TO THE CAMERA WHERE EPSTEIN IS. 
-                    PLAYING SOUND IN ONLY ONE SPOT WILL NOT WORK IF YOU DO IT TWICE OR MORE IN A ROW. 
-                    USING THE AUDIO LURE TOO MUCH WILL LEAD TO THE CAMERAS BREAKING. 
-                    TO FIX THEM HEAD TO THE CONTROL PANEL AND RESTART THE CAMERAS LIKE YOU JUST DID. 
-                    EPSTEIN DOES NOT ATTACK THROUGH THE VENTS SO DON'T BOTHER CLOSING THEM FOR THIS NIGHT.
-                </p>
-                <button id="tutorial-got-it">GOT IT</button>
-            </div>
-        </div>
-    </div>
+      _<!_- Экран обучающей подсказки -_>_
+      _<_di_id_"tutorial-overlay"_class_"hidden"_>_
+          _<_di_id_"tutorial-content"_>_
+              _<h2_DEFEND_YOURSELF_AGAINST_EPSTEIN_<h2_>_
+              _<p_EPSTEIN_ALWAYS_STARTS_AT_CAM_11._USE_THE_CAMERA'S_AUDIO_LURE_TO_KEEP_EPSTEIN_FAR_AWAY_FROM_YOU._MAKE_SURE_THE_CAMERA_YOU'RE_PLAYING_THE_SOUND_IN_IS_NEXT_TO_THE_CAMERA_WHERE_EPSTEIN_IS._PLAYING_SOUND_IN_ONLY_ONE_SPOT_WILL_NOT_WORK_IF_YOU_DO_IT_TWICE_OR_MORE_IN_A_ROW._USING_THE_AUDIO_LURE_TOO_MUCH_WILL_LEAD_TO_THE_CAMERAS_BREAKING._TO_FIX_THEM_HEAD_TO_THE_CONTROL_PANEL_AND_RESTART_THE_CAMERAS_LIKE_YOU_JUST_DID._EPSTEIN_DOES_NOT_ATTACK_THROUGH_THE_VENTS_SO_DON'T_BOTHER_CLOSING_THEM_FOR_THIS_NIGHT.<p_>_
+              _<button_id_"tutorial-got-it"_GOT_IT_<_button_>_
+          _<_/di_>_
+      _<_/di_>_
+  _<_/di_>_
 
-    <script src="js/GameState.js"></script>
-    <script src="js/AssetManager.js"></script>
-    <script src="js/UIManager.js"></script>
-    <script src="js/CameraSystem.js"></script>
-    <script src="js/EnemyAI.js"></script>
-    <script src="js/InputHandler.js"></script>
-    <script src="js/StaticNoise.js"></script>
-    <script src="js/ScaryFaceFlicker.js"></script>
-    <script src="js/Game.js"></script>
-    <script src="js/main.js"></script>
-</body>
-</html>
+  _<script_src_"js/GameState.js"><_/script_>_
+  _<script_src_"js/AssetManager.js"><_/script_>_
+  _<script_src_"js/UIManager.js"><_/script_>_
+  _<script_src_"js/CameraSystem.js"><_/script_>_
+  _<script_src_"js/EnemyAI.js"><_/script_>_
+  _<script_src_"js/InputHandler.js"><_/script_>_
+  _<script_src_"js/StaticNoise.js"><_/script_>_
+  _<script_src_"js/ScaryFaceFlicker.js"><_/script_>_
+  _<script_src_"js/Game.js"><_/script_>_
+  _<script_src_"js/main.js"><_/script_>_
+_<_/body_>_
+_<_/html_>_
