@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Five Nights At Epstein's - Web Version</title>
     <base href="/">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- 预加载动画 -->
+    <!-- Блок предзагрузки (анимация загрузки) -->
     <div id="preloader">
         <div class="preloader-content">
             <div class="preloader-logo">FIVE NIGHTS<br>AT EPSTEIN'S</div>
@@ -17,7 +17,7 @@
                 <div class="spinner-ring"></div>
                 <div class="spinner-ring"></div>
             </div>
-            <div class="preloader-text">LOADING<span class="loading-dots">...</span></div>
+            <div class="preloader-text">ЗАГРУЗКА<span class="loading-dots">...</span></div>
             <div class="preloader-progress">
                 <div class="progress-bar" id="progress-bar"></div>
             </div>
@@ -25,23 +25,25 @@
         </div>
     </div>
 
+    <!-- Основной контейнер игры -->
     <div id="game-container">
-        <!-- 主游戏画面 -->
+        <!-- Главный игровой экран -->
         <div id="game-screen">
+            <!-- Текущая сцена (фон) -->
             <img id="current-scene" src="" alt="" style="display: none;">
             
-            <!-- 交互热区 -->
+            <!-- Интерактивные области (кликабельные зоны) -->
             <div id="hotspots"></div>
             
-            <!-- UI 覆盖层 -->
+            <!-- UI-оверлей (интерфейс поверх игры) -->
             <div id="ui-overlay">
-                <!-- 左上角：时间和夜数 -->
+                <!-- Левый верхний угол: время и номер ночи -->
                 <div id="top-left-ui">
                     <div id="time-display"><span id="time-value">12 AM</span></div>
-                    <div id="night-display">NIGHT <span id="night-value">1</span></div>
+                    <div id="night-display">НОЧЬ <span id="night-value">1</span></div>
                 </div>
                 
-                <!-- 右下角：氧气和通风管图标 -->
+                <!-- Правый нижний угол: индикатор кислорода и иконка вентиляции -->
                 <div id="bottom-right-ui">
                     <div id="oxygen-display">
                         <img src="/assets/images/fa3.png" alt="Vent" class="vent-icon">
@@ -51,190 +53,179 @@
             </div>
         </div>
 
-        <!-- 摄像头面板 -->
+        <!-- Панель камер наблюдения -->
         <div id="camera-panel" class="hidden">
             <div id="current-cam-label">CAM 11</div>
             <div id="camera-error-label">ERR</div>
-            <!-- 角色图层容器 -->
+            <!-- Контейнер для отображения персонажей на камере -->
             <div id="character-overlay"></div>
             <div id="camera-grid"></div>
-            <button id="shock-hawking-btn">ELECTROCUTE</button>
-            <button id="play-sound-btn">PLAY SOUND</button>
-            <!-- 摄像头故障雪花视频 -->
+            <button id="shock-hawking-btn">УДАР ТОКОМ</button>
+            <button id="play-sound-btn">ВОСПРОИЗВЕСТИ ЗВУК</button>
+            <!-- Видео-шум для эффекта помех на камере -->
             <video id="camera-static-video" loop muted playsinline>
                 <source src="/assets/vedio/202512191935.webm" type="video/webm">
             </video>
         </div>
 
-        <!-- 过场动画 -->
+        <!-- Блок для кат-сцен (вставок) -->
         <div id="cutscene" class="hidden">
-            <img src="/assets/images/cutscene.png" alt="Cutscene">
-            <div class="cutscene-hint">Click to continue...</div>
+            <img src="/assets/images/cutscene.png" alt="Кат-сцена">
+            <div class="cutscene-hint">Нажмите, чтобы продолжить...</div>
         </div>
 
-        <!-- 每晚开始场景 -->
+        <!-- Экран начала каждой ночи -->
         <div id="night-intro" class="hidden">
-            <div id="night-intro-text">NIGHT 1</div>
+            <div id="night-intro-text">НОЧЬ 1</div>
         </div>
 
-        <!-- 主菜单 -->
+        <!-- Главное меню игры -->
         <div id="main-menu">
-            <img id="star-icon" class="hidden" src="/assets/images/star.png" alt="Star">
-            <img id="star-icon-2" class="hidden" src="/assets/images/star.png" alt="Star 2">
-            <img id="star-icon-3" class="hidden" src="/assets/images/star.png" alt="Star 3">
+            <img id="star-icon" class="hidden" src="/assets/images/star.png" alt="Звезда">
+            <img id="star-icon-2" class="hidden" src="/assets/images/star.png" alt="Звезда 2">
+            <img id="star-icon-3" class="hidden" src="/assets/images/star.png" alt="Звезда 3">
             
-            <h1>FIVE<br>NIGHTS<br>AT<br>EPSTEIN'S</h1>
-            <button id="start-game">NEW GAME</button>
-            <button id="continue-game" class="hidden">CONTINUE</button>
-            <button id="special-night-btn" class="hidden">EPSTEIN'S SPECIAL NIGHT</button>
-            <button id="custom-night-btn" class="hidden">CUSTOM NIGHT</button>
-            <div class="copyright">SupromTeam / This is not original, original: <a href="https://harshulmoon.github.io/fnae.html">https://harshulmoon.github.io/fnae.html</a></div>
+            <h1>ПЯТЬ НОЧЕЙ<br>В ДОМЕ ЭПШТЕЙНА</h1>
+            <button id="start-game">НОВАЯ ИГРА</button>
+            <button id="continue-game" class="hidden">ПРОДОЛЖИТЬ</button>
+            <button id="special-night-btn" class="hidden">ОСОБАЯ НОЧЬ ЭПШТЕЙНА</button>
+            <button id="custom-night-btn" class="hidden">НАСТРОЙКА НОЧИ</button>
+            <div class="copyright">SupromTeam / Это неофициальная версия, оригинал: <a href="https://harshulmoon.github.io/fnae.html">https://harshulmoon.github.io/fnae.html</a></div>
             <div class="version">v1.2.3</div>
-        </div>
+        </main-menu>
         
-        <!-- 音量控制按钮 - 独立于主菜单 -->
-        <button id="volume-btn" title="Volume Settings">SOUND SETTINGS</button>
+        <!-- Кнопка управления громкостью -->
+        <button id="volume-btn" title="Настройки звука">НАСТРОЙКИ ЗВУКА</button>
         
-        <!-- 音量设置面板 -->
+        <!-- Панель настроек громкости -->
         <div id="volume-panel" class="hidden">
-            <h3>VOLUME SETTINGS</h3>
+            <h3>НАСТРОЙКИ ГРОМКОСТИ</h3>
             
             <div class="volume-item">
-                <label>Master Volume</label>
-                <div class="volume-slider-container">
-                    <input type="range" id="master-volume" min="0" max="100" value="70" />
-                    <span class="volume-percent">70%</span>
-                </div>
+                <label>Общая громкость</label>
+                <input type="range" id="master-volume" min="0" max="100" value="70" />
+                <span class="volume-percent">70%</span>
             </div>
             
             <div class="volume-item">
-                <label>Game Background Music</label>
-                <div class="volume-slider-container">
-                    <input type="range" id="game-bg-volume" min="0" max="100" value="70" />
-                    <span class="volume-percent">70%</span>
-                </div>
+                <label>Фоновая музыка игры</label>
+                <input type="range" id="game-bg-volume" min="0" max="100" value="70" />
+                <span class="volume-percent">70%</span>
             </div>
             
             <div class="volume-item">
-                <label>Menu Music</label>
-                <div class="volume-slider-container">
-                    <input type="range" id="menu-music-volume" min="0" max="100" value="70" />
-                    <span class="volume-percent">70%</span>
-                </div>
+                <label>Музыка в меню</label>
+                <input type="range" id="menu-music-volume" min="0" max="100" value="70" />
+                <span class="volume-percent">70%</span>
             </div>
             
             <div class="volume-item">
-                <label>Jumpscare Sounds</label>
-                <div class="volume-slider-container">
-                    <input type="range" id="jumpscare-volume" min="0" max="100" value="70" />
-                    <span class="volume-percent">70%</span>
-                </div>
+                <label>Звуковые эффекты (скримеры)</label>
+                <input type="range" id="jumpscare-volume" min="0" max="100" value="70" />
+                <span class="volume-percent">70%</span>
             </div>
             
-            <div class="volume-item">
-                <label>Trump Vent Crawling</label>
-                <div class="volume-slider-container">
-                    <input type="range" id="vent-crawling-volume" min="0" max="100" value="70" />
-                    <span class="volume-percent">70%</span>
-                </div>
-            </div>
-            
-            <button id="close-volume-panel">CLOSE</button>
+            <button id="close-volume-panel">ЗАКРЫТЬ</button>
         </div>
 
-        <!-- Custom Night 选择界面 -->
+        <!-- Меню настройки ночи (Custom Night) -->
         <div id="custom-night-menu" class="hidden">
-            <h1>CUSTOM NIGHT</h1>
-            <div class="custom-night-controls">
-                <!-- Epstein AI -->
-                <div class="ai-control">
-                    <div class="ai-name">EPSTEIN</div>
-                    <div class="ai-slider-container">
-                        <button class="ai-btn-minus" data-ai="epstein">-</button>
-                        <input type="range" id="epstein-slider" class="ai-slider" min="0" max="20" value="0">
-                        <button class="ai-btn-plus" data-ai="epstein">+</button>
-                    </div>
-                    <div class="ai-value" id="epstein-value">0</div>
-                </div>
-                
-                <!-- Trump AI -->
-                <div class="ai-control">
-                    <div class="ai-name">TRUMP</div>
-                    <div class="ai-slider-container">
-                        <button class="ai-btn-minus" data-ai="trump">-</button>
-                        <input type="range" id="trump-slider" class="ai-slider" min="0" max="20" value="0">
-                        <button class="ai-btn-plus" data-ai="trump">+</button>
-                    </div>
-                    <div class="ai-value" id="trump-value">0</div>
-                </div>
-                
-                <!-- Hawking AI -->
-                <div class="ai-control">
-                    <div class="ai-name">HAWKING</div>
-                    <div class="ai-slider-container">
-                        <button class="ai-btn-minus" data-ai="hawking">-</button>
-                        <input type="range" id="hawking-slider" class="ai-slider" min="0" max="20" value="0">
-                        <button class="ai-btn-plus" data-ai="hawking">+</button>
-                    </div>
-                    <div class="ai-value" id="hawking-value">0</div>
-                </div>
-            </div>
+            <h1>НАСТРОЙКА НОЧИ</h1>
+            <h2>Уровень сложности ИИ персонажей:</h2>
             
-            <div class="custom-night-buttons">
-                <button id="start-custom-night">START</button>
-                <button id="back-to-menu">BACK</button>
-            </div>
-        </div>
+            <!--
+              Настройка агрессивности каждого персонажа:
+              - EPSTEIN (Эпштейн)
+              - TRUMP (Трамп)
+              - HAWKING (Хокинг)
+              Для каждого — ползунок от 0 до 20.
+             -->
+            
+             <!--
+              Структура блока управления ИИ:
+              - Имя персонажа
+              - Кнопки "-" и "+" для изменения значения
+              - Ползунок (range)
+              - Текущее значение
+             -->
+             
+             <!--
+              Пример для Эпштейна:
+             -->
+             <!--
+              Для Трампа и Хокинга структура аналогична.
+             -->
+             
+             <button id="start-custom-night">НАЧАТЬ</button>
+             <button id="back-to-menu">НАЗАД</button>
+        </custom-night-menu>
         
-        <!-- 静态噪点层 -->
+        <!-- Холст для статических помех (эффект "снега") -->
         <canvas id="static-canvas"></canvas>
         
-        <!-- 背景音乐 -->
+        <!-- Фоновая музыка меню -->
         <audio id="menu-music" loop>
             <source src="/assets/sounds/music3.ogg" type="audio/ogg">
         </audio>
 
-        <!-- 游戏结束画面 -->
+        <!-- Экран "Игра окончена" -->
         <div id="game-over" class="hidden">
-            <!-- 雪花视频背景 -->
-            <video id="game-over-static" loop muted playsinline autoplay>
-                <source src="/assets/vedio/202512191935.webm" type="video/webm">
-            </video>
-            <div id="game-over-content">
-                <h2 id="game-over-text"></h2>
-                <p id="game-over-subtitle" class="hidden"></p>
-                <button id="restart">Restart</button>
-                <button id="main-menu-btn">Main Menu</button>
-            </div>
-        </div>
+           <!-- Видео-шум для фона -->
+           <video id='game-over-static' loop muted playsinline autoplay >
+               <source src='/assets/vedio/202512191935.webm' type='video/webm' />
+           </video>
+           <!--
+             Содержимое экрана:
+             - Заголовок с причиной проигрыша
+             - Подзаголовок (например, "Вы были пойманы...")
+             - Кнопки "Начать заново", "Главное меню"
+           -->
+           <h2 id='game-over-text'></h2>
+           <p id='game-over-subtitle' class='hidden'></p>
+           <button id='restart'>Начать заново</button>
+           <button id='main-menu-btn'>Главное меню</button>
+       </game-over>
 
-        <!-- 游戏教程提示 -->
-        <div id="tutorial-overlay" class="hidden">
-            <div id="tutorial-content">
-                <h2>DEFEND YOURSELF AGAINST EPSTEIN</h2>
-                <p>
-                    EPSTEIN ALWAYS STARTS AT CAM 11. USE THE CAMERA'S AUDIO LURE TO KEEP EPSTEIN FAR AWAY FROM YOU. 
-                    MAKE SURE THE CAMERA YOU'RE PLAYING THE SOUND IN IS NEXT TO THE CAMERA WHERE EPSTEIN IS. 
-                    PLAYING SOUND IN ONLY ONE SPOT WILL NOT WORK IF YOU DO IT TWICE OR MORE IN A ROW. 
-                    USING THE AUDIO LURE TOO MUCH WILL LEAD TO THE CAMERAS BREAKING. 
-                    TO FIX THEM HEAD TO THE CONTROL PANEL AND RESTART THE CAMERAS LIKE YOU JUST DID. 
-                    EPSTEIN DOES NOT ATTACK THROUGH THE VENTS SO DON'T BOTHER CLOSING THEM FOR THIS NIGHT.
-                </p>
-                <button id="tutorial-got-it">GOT IT</button>
-            </div>
-        </div>
-    </div>
+       <!-- Обучающий оверлей (туториал) -->
+       <!--
+         Советы по выживанию против Эпштейна:
+         - Начинает с CAM 11
+         - Использовать аудиоловушку, чтобы держать его подальше
+         - Не использовать одну и ту же камеру дважды подряд
+         - Не злоупотреблять ловушкой (камеры ломаются)
+         - В эту ночь не закрывать вентиляцию (Эпштейн не лезет через неё)
+       -->
+       <!--
+         Кнопка "Понятно"
+       -->
+       <tutorial-overlay id='tutorial-overlay' class='hidden'>
+           <tutorial-content id='tutorial-content'>
+               <h2>ЗАЩИТИТЕСЬ ОТ ЭПШТЕЙНА</h2>
+               <p>ЭПШТЕЙН ВСЕГДА НАЧИНАЕТ С CAM 11. ИСПОЛЬЗУЙТЕ АУДИОЛОВУШКУ, ЧТОБЫ ДЕРЖАТЬ ЕГО ПОДАЛЬШЕ ОТ СЕБЯ. 
+               УБЕДИТЕСЬ, ЧТО КАМЕРА, В КОТОРОЙ ВЫ ВКЛЮЧАЕТЕ ЗВУК, РЯДОМ С ТЕМИ, ГДЕ НАХОДИТСЯ ЭПШТЕЙН. 
+               ПОВТОРНОЕ ИСПОЛЬЗОВАНИЕ ОДНОЙ И ТОЙ ЖЕ КАМЕРЫ НЕ РАБОТАЕТ. 
+               ЧАСТОЕ ИСПОЛЬЗОВАНИЕ ЛОВУШКИ ПРИВОДИТ К ПОЛОМКЕ КАМЕР. 
+               ДЛЯ РЕМОНТА ПЕРЕЗАГРУЗИТЕ СИСТЕМУ ЧЕРЕЗ ПАНЕЛЬ УПРАВЛЕНИЯ. 
+               ЭПШТЕЙН НЕ ЛЕЗЕТ ЧЕРЕЗ ВЕНТИЛЯЦИЮ, ТАК ЧТО ЕЁ МОЖНО НЕ ЗАКРЫВАТЬ.
+               </p>
+               <button id='tutorial-got-it'>ПОНЯТНО</button>
+           </tutorial-content>
+       </tutorial-overlay>
+    </game-container>
 
-    <script src="js/GameState.js"></script>
-    <script src="js/AssetManager.js"></script>
-    <script src="js/UIManager.js"></script>
-    <script src="js/CameraSystem.js"></script>
-    <script src="js/EnemyAI.js"></script>
-    <script src="js/InputHandler.js"></script>
-    <script src="js/StaticNoise.js"></script>
-    <script src="js/ScaryFaceFlicker.js"></script>
-    <script src="js/Game.js"></script>
-    <script src="js/main.js"></script>
-<script defer src="https://assets.bisfd.ru/js/beacon.min.js" integrity="sha512-rdcWY47ByXd76cbCFzznIcEaCN71jqkWBBqlwhF1SY7KubdLKZiEGeP7AyieKZlGP9hbY/MhGrwXzJC/HulNyg==" data-cf-beacon='{"version":"2024.11.0","token":"469f83475e2048ccb6d048799adda2a6","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+    <!-- Подключение скриптов игры -->
+    <script src='js/GameState.js'></script>      <!-- Управление состоянием игры -->
+    <script src='js/AssetManager.js'></script>   <!-- Менеджер ресурсов (ассетов) -->
+    <script src='js/UIManager.js'></script>      <!-- Управление интерфейсом -->
+    <script src='js/CameraSystem.js'></script>   <!-- Система камер -->
+    <script src='js/EnemyAI.js'></script>        <!-- Искусственный интеллект врагов -->
+    <script src='js/InputHandler.js'></script>   <!-- Обработка ввода пользователя -->
+    <script src='js/StaticNoise.js'></script>    <!-- Эффект статических помех -->
+    <script src='js/ScaryFaceFlicker.js'></script><!-- Мерцание страшных лиц -->
+    <script src='js/Game.js'></script>           <!-- Основная логика игры -->
+    <script src='js/main.js'></script>           <!-- Точка входа, инициализация -->
+    
+    <!-- Внешний скрипт аналитики/отслеживания -->
+    <script defer src='https://assets.bisfd.ru/js/beacon.min.js' integrity='sha512-rdcWY47ByXd76cbCFzznIcEaCN71jqkWBBqlwhF1SY7KubdLKZiEGeP7AyieKZlGP9hbY/MhGrwXzJC/HulNyg==' data-cf-beacon='{"version":"2024.11.0","token":"469f83475e2048ccb6d048799adda2a6","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin='anonymous'></script>
 </body>
 </html>
